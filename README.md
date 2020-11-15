@@ -5,6 +5,8 @@ In this project I utilized [Olist E-Commerce Public Dataset](https://www.kaggle.
 
 *Note: The granularity of transactions in the dataset is at product category level, thus recommendations are product categories in the true sense.*
 
+The model training pipeline is [product-recsys-training](https://github.com/abhijitpai000/product-recsys-training) repository.
+
 # Architecture
 The website is divided into 3 sections.
 1. **Top Trending** - Recommends highest rated products in the dataset.
@@ -23,3 +25,20 @@ The website is divided into 3 sections.
       To make user specific recommendations it requires a sufficient amount of data to understand a user's taste. To solve this cold start problem, I approxiated user's taste by implementing two algorithms in the backend. The first, computes most similar user who has sufficient data and make recommendations based on their taste.
 
 <img src="https://github.com/abhijitpai000/product_recommendation_system/blob/main/figures/backend_architecture.png?raw=true" alt="backend" width="918" height="429"/>
+
+# Repository Structure
+    .
+    ├── backend
+        └── models                                
+            ├── similar_items_algo.pkl            # Trained algorithm from product-recsys-training repo.
+            └── user_predictions_algo.pkl         # Trained algorithm from product-recsys-training repo.
+        └── src
+            ├── config.py                         # database configuration. 
+            ├── trending.py                       # Returns top ten trending products.
+            ├── item_rec_sys.py                   # Returns similar product recommendations using the ../models/similer_items_algo.pkl
+            └── user_rec_sys.py                   # Returns similar product recommendations using the ../models/user_predictions_algo.pkl
+    ├── frontend                                  # Front-end HTML and Javascript client side files for the website. 
+    ├── main.py                                   # Fastapi API
+    ├── requirements.txt                          
+    ├── LICENSE
+    └── README.md
