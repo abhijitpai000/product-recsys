@@ -1,5 +1,5 @@
 # Product-Recsys <a href="http://product-recsys.herokuapp.com/">applink</a>
-[![Generic badge](https://img.shields.io/badge/Fastapi-<COLOR>.svg)](https://shields.io/) [![Generic badge](https://img.shields.io/badge/License-MIT-<COLOR>.svg)](https://shields.io/) 
+[![Generic badge](https://img.shields.io/badge/API-Fastapi-<COLOR>.svg)](https://shields.io/) [![Generic badge](https://img.shields.io/badge/License-MIT-<COLOR>.svg)](https://shields.io/) 
 
 In this project I utilized [Olist E-Commerce Public Dataset](https://www.kaggle.com/olistbr/brazilian-ecommerce), which has information of 100k orders from 2016 to 2018 made at multiple marketplaces in Brazil, to train 3 algorithms which generates product recommendations based on the ratings of products given by customers.
 
