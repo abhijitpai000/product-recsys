@@ -9,6 +9,11 @@ Using the customer orders and rating data from [Olist E-Commerce Public Dataset]
 
 *- The application is deployed on a free server that goes into sleep mode, expect a ~10 seconds delay in loading, If it takes more than 10 seconds, try refreshing! :)*
 
+![gif](https://github.com/abhijitpai000/product-recsys/blob/main/product-recsys-gif.gif)
+
+*(the drop-down menu works on the website)*
+
+
 ### Model Training
 The model training pipeline is in the [product-recsys-training](https://github.com/abhijitpai000/product-recsys-training) repository.
 
