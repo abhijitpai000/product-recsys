@@ -3,8 +3,13 @@
 
 Using the customer orders and rating data from [Olist E-Commerce Public Dataset](https://www.kaggle.com/olistbr/brazilian-ecommerce), which has information about 100k orders made at multiple marketplaces in Brazil from 2016 to 2018, I trained 3 models that generate product recommendations.
 
-*Note: The granularity of orders in the dataset is at product category level, thus recommendations are product categories in the true sense.*
+*NOTE* 
 
+*- The granularity of orders in the dataset is at product category level, thus recommendations are product categories in the true sense.*
+
+*- The application is deployed on a free server, expect a ~10 seconds delay in loading*
+
+### Model Training
 The model training pipeline is in the [product-recsys-training](https://github.com/abhijitpai000/product-recsys-training) repository.
 
 # Architecture
