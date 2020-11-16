@@ -9,7 +9,7 @@ Using the customer orders and rating data from [Olist E-Commerce Public Dataset]
 
 *- The application is deployed on a free server that goes into sleep mode, expect a ~10 seconds delay in loading, If it takes more than 10 seconds, try refreshing! :)*
 
-![gif](https://github.com/abhijitpai000/product-recsys/blob/main/sample.gif)
+![gif](https://github.com/abhijitpai000/product-recsys/blob/main/sample2.gif)
 
 
 ### Model Training
