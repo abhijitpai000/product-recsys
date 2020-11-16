@@ -7,7 +7,7 @@ Using the customer orders and rating data from [Olist E-Commerce Public Dataset]
 
 *- The granularity of orders in the dataset is at product category level, thus recommendations are product categories in the true sense.*
 
-*- The application is deployed on a free server, expect a ~10 seconds delay in loading*
+*- The application is deployed on a free server that goes into sleep mode, expect a ~10 seconds delay in loading, If it takes more than 10 seconds, try refreshing! :)*
 
 ### Model Training
 The model training pipeline is in the [product-recsys-training](https://github.com/abhijitpai000/product-recsys-training) repository.
