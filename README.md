@@ -1,4 +1,4 @@
-# Product-Recsys <a href="http://product-recsys.herokuapp.com/">applink</a>
+# Product-Recsys <a href="http://product-recsys.herokuapp.com/" target="_blank">applink</a>
 [![Generic badge](https://img.shields.io/badge/API-Fastapi-<COLOR>.svg)](https://shields.io/) [![Generic badge](https://img.shields.io/badge/License-MIT-<COLOR>.svg)](https://shields.io/) 
 
 Using the customer orders and rating data from [Olist E-Commerce Public Dataset](https://www.kaggle.com/olistbr/brazilian-ecommerce), which has information about 100k orders made at multiple marketplaces in Brazil from 2016 to 2018, I trained 3 models that generate product recommendations.
