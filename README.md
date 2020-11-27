@@ -1,25 +1,56 @@
-# Product-Recsys <a href="http://product-recsys.herokuapp.com/">applink</a>
-[![Generic badge](https://img.shields.io/badge/Python-3.7.6-<COLOR>.svg)](https://shields.io/) [![Generic badge](https://img.shields.io/badge/License-MIT-<COLOR>.svg)](https://shields.io/) 
+# Product-Recsys <a href="http://product-recsys.herokuapp.com/" target="_blank">applink</a>
+[![Generic badge](https://img.shields.io/badge/API-Fastapi-<COLOR>.svg)](https://shields.io/) [![Generic badge](https://img.shields.io/badge/License-MIT-<COLOR>.svg)](https://shields.io/) 
 
-In this project I utilized [Olist E-Commerce Public Dataset](https://www.kaggle.com/olistbr/brazilian-ecommerce), which has information of 100k orders from 2016 to 2018 made at multiple marketplaces in Brazil, to train 3 algorithms which generates product recommendations based on the ratings of products given by customers.
+Using the customer orders and rating data from [Olist E-Commerce Public Dataset](https://www.kaggle.com/olistbr/brazilian-ecommerce), which has information about 100k orders made at multiple marketplaces in Brazil from 2016 to 2018, I trained 3 models that generate product recommendations.
 
-*Note: The granularity of transactions in the dataset is at product category level, thus recommendations are product categories in the true sense.*
+*NOTE* 
+
+*- The granularity of orders in the dataset is at product category level, thus recommendations are product categories in the true sense.*
+
+*- The application is deployed on a free server that goes into sleep mode, expect a ~10 seconds delay in loading, If it takes more than 10 seconds, try refreshing! :)*
+
+![gif](https://github.com/abhijitpai000/product-recsys/blob/main/sample2.gif)
+
+
+### Model Training
+The model training pipeline is in the [product-recsys-training](https://github.com/abhijitpai000/product-recsys-training) repository.
 
 # Architecture
 The website is divided into 3 sections.
 1. **Top Trending** - Recommends highest rated products in the dataset.
 
-      Methodology:
-      [IMDB weighted average formula](https://help.imdb.com/article/imdb/track-movies-tv/ratings-faq/G67Y87TFYYP6TWAV#calculatetop) which takes into account the total number of reviews a product has recieved.
-
+      Methodology (Demographic Filtering):
+      
+      Using [IMDB weighted average formula](https://help.imdb.com/article/imdb/track-movies-tv/ratings-faq/G67Y87TFYYP6TWAV#calculatetop) which takes into account the total number of reviews alongside the average historical rating given to a product, computed the highest-rated ten products.
+      
 2. **Similar Products** - Takes user input of one product and recommends 5 similar products.
 
-      Methodology:
-      Computes cosine similarity between selected and other products using KNN Basic algorithm, as recommends 5 nearest neighbors.
+      Methodology (Item based collaborative filtering):
+      
+      Computes cosine similarity between selected product and others based on historical ratings given by customers and recommends 5 nearest neighbors using KNN Basic algorithm.
 
-3. **Products you might like** - Takes user input & rating of one product, and recommends 3 products based on the rating given for the selected product.
+3. **Products you might like** - Takes user input & rating of one product, then recommends 3 products based on the rating given for the selected product.
 
-      Methodology:
-      To make user specific recommendations it requires a sufficient amount of data to understand a user's taste. To solve this cold start problem, I approxiated user's taste by implementing two algorithms in the backend. The first, computes most similar user who has sufficient data and make recommendations based on their taste.
+      Methodology (User based collaborative filtering):
+      
+      This section uses user-based collaborative filtering to make user-specific recommendations, the main limitation of this method is that it requires a sufficient amount of user data to understand a user's taste, having a new user of the website input ratings for products seemed inefficient from a UX perspective. To solve this cold start problem, I approximated the user's taste by implementing two algorithms in the backend. The first computes the most similar user who has sufficient historical data, and second, makes recommendations based on their taste.
 
+*Architecture Diagram*
 <img src="https://github.com/abhijitpai000/product_recommendation_system/blob/main/figures/backend_architecture.png?raw=true" alt="backend" width="918" height="429"/>
+
+# Repository Structure
+    .
+    ├── backend
+        └── models                                
+            ├── similar_items_algo.pkl            # Trained model from product-recsys-training repo. (not included here)
+            └── user_predictions_algo.pkl         # Trained model from product-recsys-training repo. (not included here)
+        └── src
+            ├── config.py                         # database configuration. (not included here)
+            ├── trending.py                       # Returns top ten trending products.
+            ├── item_rec_sys.py                   # Returns similar product recommendations using the ../models/similer_items_algo.pkl
+            └── user_rec_sys.py                   # Returns similar product recommendations using the ../models/user_predictions_algo.pkl
+    ├── frontend                                  # Front-end and client-side scripts.
+    ├── main.py                                   # Fastapi API
+    ├── requirements.txt                          
+    ├── LICENSE
+    └── README.md
