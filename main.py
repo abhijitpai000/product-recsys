@@ -1,6 +1,8 @@
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+from pathlib import Path
 
 
 # Local Imports.
@@ -9,7 +11,8 @@ from backend.src.item_rec_sys import get_similar_items
 from backend.src.user_rec_sys import get_top_n_recommendations
 
 app = FastAPI()
-templates = Jinja2Templates(directory="frontend")
+templates = Jinja2Templates(directory="frontend/templates")
+app.mount("/static", StaticFiles(directory=Path(__file__).parent.parent.absolute() / "frontend/static"), name="static")
 
 
 @app.get("/")
