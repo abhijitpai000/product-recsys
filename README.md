@@ -11,10 +11,6 @@ Using the customer orders and rating data from [Olist E-Commerce Public Dataset]
 
 <img src="https://github.com/abhijitpai000/product-recsys/blob/main/sample-recsys2.gif">
 
-
-### Model Training
-The model training pipeline is in the [product-recsys-training](https://github.com/abhijitpai000/product-recsys-training) repository.
-
 # Architecture
 *Architecture Diagram*
 <img src="https://github.com/abhijitpai000/product_recommendation_system/blob/main/figures/backend_architecture.png?raw=true" alt="backend" width="918" height="429"/>
@@ -36,19 +32,5 @@ The website is divided into 3 sections.
 **Method** -   Approximates the user's taste by running two algorithms in the backend, first computes the most similar user who has sufficient historical data, and second, makes recommendations based on their taste.
 
 
-# Repository Structure
-    .
-    ├── backend
-        └── models                                
-            ├── similar_items_algo.pkl            # Trained model from product-recsys-training repo. (not included here)
-            └── user_predictions_algo.pkl         # Trained model from product-recsys-training repo. (not included here)
-        └── src
-            ├── config.py                         # database configuration. (not included here)
-            ├── trending.py                       # Returns top ten trending products.
-            ├── item_rec_sys.py                   # Returns similar product recommendations using the ../models/similer_items_algo.pkl
-            └── user_rec_sys.py                   # Returns similar product recommendations using the ../models/user_predictions_algo.pkl
-    ├── frontend                                  # Front-end and client-side scripts.
-    ├── main.py                                   # Fastapi API
-    ├── requirements.txt                          
-    ├── LICENSE
-    └── README.md
+# Model Training
+The model training part of this project is in the [product-recsys-training](https://github.com/abhijitpai000/product-recsys-training) repository.
